@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function GirisFormu() {
+  
   const [aktifSekme, setAktifSekme] = useState<"giris" | "kayit">("giris");
+  const router = useRouter();
 
   return (
     <div className="w-full max-w-md p-8 bg-white rounded-xl shadow-xl space-y-6">
@@ -32,7 +35,13 @@ export default function GirisFormu() {
       </div>
 
       {/* Form Alanı */}
-      <form className="space-y-4">
+      <form onSubmit={(e) => {
+    e.preventDefault();
+    if (aktifSekme === "giris") {
+      router.push("/counter");
+    }
+  }}
+  className="space-y-4">
         {aktifSekme === "kayit" && (
           <input
             type="email"
