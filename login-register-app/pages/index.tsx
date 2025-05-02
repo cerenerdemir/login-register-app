@@ -1,17 +1,9 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import GirisFormu from "@/components/GirisFormu";
 
 export default function Home() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push("/"); // burası istersen /giris de olabilir
-  }, [router]);
-
-  return null;
+  return (
+    <div className="min-h-screen flex justify-center items-center bg-gray-100">
+      <GirisFormu />
+    </div>
+  );
 }
-
-}
-
-
-
